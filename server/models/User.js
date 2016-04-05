@@ -1,10 +1,6 @@
 'use strict';
 
 import mongoose from 'mongoose-fill';
-import validate from 'mongoose-validator';
-import bcrypt from 'bcrypt-as-promised';
-import * as provider from '../auth/config';
-import ImageUser from './ImageUser';
 
 const ObjectId = mongoose.Schema.Types.ObjectId;
 

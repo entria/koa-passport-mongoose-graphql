@@ -11,7 +11,6 @@ import * as provider from './provider';
 // Strategies
 import jwtStrategy from './strategies/jwt';
 import emailStrategy from './strategies/email';
-import accessTokenStrategy from './strategies/accessToken';
 
 passport.use('jwt', jwtStrategy);
 passport.use('email', emailStrategy);
