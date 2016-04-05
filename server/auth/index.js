@@ -33,7 +33,6 @@ passport.deserializeUser((id, done) => {
 export default function auth() {
   return compose([
     passport.initialize(),
-    passport.session(),
   ]);
 }
 
@@ -48,7 +47,7 @@ export function authEmail() {
 // After autentication using one of the strategies, generate a JWT token
 export function generateToken() {
   return async ctx => {
-    const { user } = ctx.session.passport;
+    const { user } = ctx.passport;
     if (user === false) {
       ctx.status = 401;
     } else {

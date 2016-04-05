@@ -37,7 +37,7 @@ async function register(ctx, next) {
 
       await user.save();
 
-      ctx.session.passport = {
+      ctx.passport = {
         user: user._id,
       };
 
