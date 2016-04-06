@@ -8,8 +8,11 @@ npm install
 ```
 #### Develop
 ```bash
-# run server
+# using nodemon
 npm start
+
+# using babel-watch
+npm run watch
 ```
 
 #### Test
