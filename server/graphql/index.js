@@ -8,8 +8,6 @@ export const schema = getSchema(Models);
 export const graphiql = true;
 
 export default function graphql() {
-  console.log('graphql init');
-
   return compose([
       convert(graffiti.koa({
         schema,

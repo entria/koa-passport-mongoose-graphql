@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "Koa 2 server with passport mongoose and graphql",
   "main": "index.js",
-  "scripts": {
-    "eslint": "eslint index.js server/** test/**",
-    "start": "nodemon index.js",
-    "watch": "babel-watch --watch server index.js",
-    "test": "mocha test"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sibeliusseraphini/koa-passport-mongoose-graphql"
@@ -67,5 +61,12 @@
     "nodemon": "^1.9.1",
     "supertest": "^1.2.0",
     "supertest-as-promised": "^3.0.0"
+  },
+  "scripts": {
+    "eslint": "eslint index.js server/** test/**",
+    "start": "nodemon index.js",
+    "watch": "babel-watch --watch server index.js",
+    "update-schema": "babel-node ./scripts/updateSchema.js",
+    "test": "mocha test"
   }
 }

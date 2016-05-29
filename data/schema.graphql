@@ -1,0 +1,127 @@
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
+
+input addUserInput {
+  name: String
+  email: String
+  password: String
+  updatedAt: Date
+  createdAt: Date
+  clientMutationId: String!
+}
+
+type addUserPayload {
+  viewer: Viewer
+  changedUserEdge: changedUserEdge
+  clientMutationId: String!
+}
+
+type changedUserEdge {
+  node: changedUserNode
+  cursor: String!
+}
+
+type changedUserNode {
+  name: String
+  email: String
+  password: String
+  _id: ID
+  updatedAt: Date
+  createdAt: Date
+  id: ID!
+}
+
+scalar Date
+
+input deleteUserInput {
+  id: ID!
+  clientMutationId: String!
+}
+
+type deleteUserPayload {
+  viewer: Viewer
+  ok: Boolean
+  id: ID!
+  clientMutationId: String!
+}
+
+interface Node {
+  id: ID!
+}
+
+enum orderByUser {
+  NAME_ASC
+  NAME_DESC
+  PASSWORD_ASC
+  PASSWORD_DESC
+  _ID_ASC
+  _ID_DESC
+  UPDATEDAT_ASC
+  UPDATEDAT_DESC
+  CREATEDAT_ASC
+  CREATEDAT_DESC
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type RootMutation {
+  addUser(input: addUserInput!): addUserPayload
+  updateUser(input: updateUserInput!): updateUserPayload
+  deleteUser(input: deleteUserInput!): deleteUserPayload
+}
+
+type RootQuery {
+  viewer: Viewer
+  node(id: ID!): Node
+  user(id: ID!): User
+  users(id: [ID], ids: [ID], orderBy: orderByUser, name: String, email: String, password: String, _id: ID, updatedAt: Date, createdAt: Date): [User]
+}
+
+input updateUserInput {
+  name: String
+  email: String
+  password: String
+  updatedAt: Date
+  createdAt: Date
+  id: ID!
+  clientMutationId: String!
+}
+
+type updateUserPayload {
+  changedUser: User
+  clientMutationId: String!
+}
+
+type User implements Node {
+  name: String
+  email: String
+  password: String
+  _id: ID
+  updatedAt: Date
+  createdAt: Date
+  id: ID!
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]
+  count: Float
+}
+
+type UserEdge {
+  node: User
+  cursor: String!
+}
+
+type Viewer implements Node {
+  id: ID!
+  users(after: String, first: Int, before: String, last: Int, orderBy: orderByUser, name: String, email: String, password: String, _id: ID, updatedAt: Date, createdAt: Date): UserConnection
+  user(id: ID!): User
+}
