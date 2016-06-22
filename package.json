@@ -12,7 +12,7 @@
     "@risingstack/graffiti": "^3.0.4",
     "@risingstack/graffiti-mongoose": "^5.1.0",
     "aws-sdk": "^2.3.0",
-    "bcrypt-as-promised": "^1.1.0",
+    "bcrypt-nodejs-as-promised": "^1.0.4",
     "es6-promise": "^3.1.2",
     "graphql": "^0.5.0",
     "import-dir": "0.0.1",
