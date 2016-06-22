@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "4"
+services:
+  - mongodb
+before_script:
+  - mongo mydb-test --eval 'db.addUser("travis", "test");'
