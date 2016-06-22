@@ -3,6 +3,7 @@
 *.sublime-workspace
 .idea/
 
+lib
 lib-cov
 *.seed
 *.log

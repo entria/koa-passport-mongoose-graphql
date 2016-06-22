@@ -1,5 +1,7 @@
 'use strict';
 
+import 'babel-polyfill';
+import 'isomorphic-fetch';
 import app from './server';
 import { connectDatabase } from './server/db';
 import { development, test, production } from './server/db/config';

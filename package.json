@@ -2,7 +2,7 @@
   "name": "koa-passport-mongoose-graphql",
   "version": "1.0.0",
   "description": "Koa 2 server with passport mongoose and graphql",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/sibeliusseraphini/koa-passport-mongoose-graphql"
@@ -49,7 +49,7 @@
     "babel-polyfill": "^6.7.4",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-stage-0": "^6.5.0",
-    "babel-register": "^6.6.0",
+    "babel-register": "^6.9.0",
     "babel-watch": "^2.0.2",
     "chai": "^3.5.0",
     "eslint": "^2.9.0",
@@ -63,10 +63,13 @@
     "supertest-as-promised": "^3.0.0"
   },
   "scripts": {
-    "eslint": "eslint index.js server/** test/**",
-    "start": "nodemon index.js",
-    "watch": "babel-watch --watch server index.js",
-    "update-schema": "babel-node ./scripts/updateSchema.js",
-    "test": "mocha test"
+    "clean": "rm -rf lib && mkdir lib",
+    "build": "npm run clean && babel src --out-dir lib",
+    "prestart": "npm run build",
+    "start": "nodemon ./lib/index.js",
+    "eslint": "eslint index.js ./src/** ./test/**",
+    "watch": "nodemon --exec babel-node -- ./src/index.js",
+    "update-schema": "babel-node ./src/scripts/updateSchema.js",
+    "test": "mocha test --compilers js:babel-core/register"
   }
 }
