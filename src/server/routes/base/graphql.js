@@ -1,6 +1,3 @@
-/**
- * Created by sibelius on 05/04/16.
- */
 import { graphql } from 'graphql';
 import { renderGraphiQL } from '../../graphql/util';
 import { schema, graphiql } from '../../graphql';
