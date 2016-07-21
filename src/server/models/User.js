@@ -2,8 +2,6 @@
 
 import mongoose from 'mongoose-fill';
 
-const ObjectId = mongoose.Schema.Types.ObjectId;
-
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
