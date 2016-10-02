@@ -62,7 +62,7 @@ export function renderGraphiQL({ query, variables, version = GRAPHIQL_VERSION } 
           }
           // Defines a GraphQL fetcher using the fetch API.
           function graphQLFetcher(graphQLParams) {
-            return fetch(window.location.origin + '/api/graphql', {
+            return fetch(window.location.origin + '/graphql', {
               method: 'post',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(graphQLParams),
