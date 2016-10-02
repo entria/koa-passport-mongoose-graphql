@@ -2,6 +2,11 @@
 
 [![Build Status](https://travis-ci.org/sibelius/koa-passport-mongoose-graphql.svg?branch=master)](https://travis-ci.org/sibelius/koa-passport-mongoose-graphql)
 
+## Notice
+You want build a more flexible GraphQL schema, consider using this boilerplate instead: https://github.com/sibelius/graphql-dataloader-boilerplate
+
+[graffiti-mongoose](https://github.com/RisingStack/graffiti-mongoose) is good for your first version of GraphQL, but do not scale well when you need to customize your schema
+
 ## Command
 
 #### Setup
