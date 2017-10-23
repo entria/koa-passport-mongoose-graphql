@@ -9,6 +9,6 @@ export function connectDatabase(uri) {
       .on('close', () => console.log('Database connection closed.'))
       .once('open', () => resolve(mongoose.connections[0]));
 
-    mongoose.connect(uri);
+    mongoose.connect(uri, { useMongoClient: true });
   });
 }
