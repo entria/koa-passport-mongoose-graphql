@@ -40,7 +40,6 @@
     "passport-http-bearer": "^1.0.1",
     "passport-jwt": "^2.0.0",
     "passport-local": "^1.0.0",
-    "supertest-as-promised": "^3.1.0",
     "uid": "0.0.2"
   },
   "devDependencies": {
@@ -59,8 +58,7 @@
     "eslint-plugin-react": "^5.0.1",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.1",
-    "supertest": "^1.2.0",
-    "supertest-as-promised": "^3.0.0"
+    "supertest": "^1.2.0"
   },
   "scripts": {
     "clean": "rm -rf lib && mkdir lib",
