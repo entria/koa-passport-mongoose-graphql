@@ -10,7 +10,7 @@ export default (router) => {
   router
     .get('/graphql',
       async ctx => {
-        const body = ctx.request.body;
+        const { body } = ctx.request;
         const { query, variables } = Object.assign({}, body, ctx.query);
 
         if (accepts(ctx, 'html') && graphiql) {
@@ -23,7 +23,7 @@ export default (router) => {
     )
     .post('/graphql',
       async ctx => {
-        const body = ctx.request.body;
+        const { body } = ctx.request;
         const { query, variables } = Object.assign({}, body, ctx.query);
 
         ctx.body = await graphql(schema, query, ctx, variables);

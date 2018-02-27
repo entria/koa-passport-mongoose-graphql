@@ -1,5 +1,3 @@
-'use strict';
-
 import mongoose from 'mongoose-fill';
 
 const UserSchema = new mongoose.Schema({

@@ -1,7 +1,5 @@
-'use strict';
-
-//TODO - add real clientId and clientSecret
-export const facebook = {
+// TODO - add real clientId and clientSecret
+export default {
   clientId: '',
   clientSecret: '',
   route: '/auth/facebook',

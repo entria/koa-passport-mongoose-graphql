@@ -1,12 +1,8 @@
-'use strict';
-
 import passport from 'koa-passport';
 import compose from 'koa-compose';
-import importDir from 'import-dir';
-import User from '../models/User';
 import jwt from 'jsonwebtoken';
+import User from '../models/User';
 import { auth as config } from './config';
-import * as provider from './provider';
 
 // Strategies
 import jwtStrategy from './strategies/jwt';
@@ -51,10 +47,10 @@ export function generateToken() {
     if (user === false) {
       ctx.status = 401;
     } else {
-      const _token = jwt.sign({ id: user }, config.secret);
-      const token = `JWT ${_token}`;
+      const jwtToken = jwt.sign({ id: user }, config.secret);
+      const token = `JWT ${jwtToken}`;
 
-      const currentUser = await User.findOne({_id: user});
+      const currentUser = await User.findOne({ _id: user });
 
       ctx.status = 200;
       ctx.body = {

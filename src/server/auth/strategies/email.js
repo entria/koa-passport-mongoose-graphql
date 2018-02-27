@@ -1,7 +1,5 @@
-'use strict';
-
-import User from '../../models/User';
 import { Strategy as CustomStrategy } from 'passport-custom';
+import User from '../../models/User';
 
 export default new CustomStrategy(async (ctx, done) => {
   console.log('Email Strategy: ', ctx.body);
