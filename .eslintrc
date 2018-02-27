@@ -3,8 +3,13 @@
   "parser": "babel-eslint",
   "rules": {
     "no-console": 0,
-    "max-len": [1, 80, 2],
-    "no-param-reassign": [2, { "props": false }]
+    "max-len": "off",
+    "no-return-assign": "off",
+    "no-param-reassign": [2, { "props": false }],
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "comma-dangle": "off",
+    "function-paren-newline": "off",
+    "arrow-parens": "off"
   },
   "env": {
     "mocha": true

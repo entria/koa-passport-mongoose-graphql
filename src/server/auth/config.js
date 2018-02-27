@@ -1,5 +1,3 @@
-'use strict';
-
 export const localClient = {
   name: 'local',
   id: 'local',

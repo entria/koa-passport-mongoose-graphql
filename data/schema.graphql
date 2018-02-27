@@ -9,17 +9,21 @@ input addUserInput {
   password: String
   updatedAt: Date
   createdAt: Date
-  clientMutationId: String!
+  clientMutationId: String
 }
 
 type addUserPayload {
   viewer: Viewer
   changedUserEdge: changedUserEdge
-  clientMutationId: String!
+  clientMutationId: String
 }
 
+"""An edge in a connection."""
 type changedUserEdge {
+  """The item at the end of the edge"""
   node: changedUserNode
+
+  """A cursor for use in pagination"""
   cursor: String!
 }
 
@@ -30,6 +34,8 @@ type changedUserNode {
   _id: ID
   updatedAt: Date
   createdAt: Date
+
+  """The ID of an object"""
   id: ID!
 }
 
@@ -37,17 +43,19 @@ scalar Date
 
 input deleteUserInput {
   id: ID!
-  clientMutationId: String!
+  clientMutationId: String
 }
 
 type deleteUserPayload {
   viewer: Viewer
   ok: Boolean
   id: ID!
-  clientMutationId: String!
+  clientMutationId: String
 }
 
+"""An object with an ID"""
 interface Node {
+  """The id of the object."""
   id: ID!
 }
 
@@ -64,13 +72,6 @@ enum orderByUser {
   CREATEDAT_DESC
 }
 
-type PageInfo {
-  hasNextPage: Boolean!
-  hasPreviousPage: Boolean!
-  startCursor: String
-  endCursor: String
-}
-
 type RootMutation {
   addUser(input: addUserInput!): addUserPayload
   updateUser(input: updateUserInput!): updateUserPayload
@@ -78,10 +79,28 @@ type RootMutation {
 }
 
 type RootQuery {
-  viewer: Viewer
-  node(id: ID!): Node
   user(id: ID!): User
-  users(id: [ID], ids: [ID], orderBy: orderByUser, name: String, email: String, password: String, _id: ID, updatedAt: Date, createdAt: Date): [User]
+  User(
+    """The ID of a User"""
+    id: [ID]
+
+    """The ID of a User"""
+    ids: [ID]
+    orderBy: orderByUser
+    name: String
+    email: String
+    password: String
+    _id: ID
+    updatedAt: Date
+    createdAt: Date
+  ): [User]
+  viewer: Viewer
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
 }
 
 input updateUserInput {
@@ -91,12 +110,12 @@ input updateUserInput {
   updatedAt: Date
   createdAt: Date
   id: ID!
-  clientMutationId: String!
+  clientMutationId: String
 }
 
 type updateUserPayload {
   changedUser: User
-  clientMutationId: String!
+  clientMutationId: String
 }
 
 type User implements Node {
@@ -106,22 +125,13 @@ type User implements Node {
   _id: ID
   updatedAt: Date
   createdAt: Date
+
+  """The ID of an object"""
   id: ID!
-}
-
-type UserConnection {
-  pageInfo: PageInfo!
-  edges: [UserEdge]
-  count: Float
-}
-
-type UserEdge {
-  node: User
-  cursor: String!
 }
 
 type Viewer implements Node {
+  """The ID of an object"""
   id: ID!
-  users(after: String, first: Int, before: String, last: Int, orderBy: orderByUser, name: String, email: String, password: String, _id: ID, updatedAt: Date, createdAt: Date): UserConnection
   user(id: ID!): User
 }

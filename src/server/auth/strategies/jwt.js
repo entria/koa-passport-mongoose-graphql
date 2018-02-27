@@ -1,16 +1,14 @@
-'use strict';
-
-import User from '../../models/User';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
+import User from '../../models/User';
 import { auth } from '../config';
 
 const opts = {
-  jwtFromRequest: ExtractJwt.fromAuthHeader(),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: auth.secret,
 };
 
-export default new JWTStrategy(opts, async (jwt_payload, done) => {
-  const user = await User.findById( jwt_payload.id );
+export default new JWTStrategy(opts, async (jwtPayload, done) => {
+  const user = await User.findById(jwtPayload.id);
   if (user) {
     done(null, user);
   } else {

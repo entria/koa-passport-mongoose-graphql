@@ -1,13 +1,9 @@
-'use strict';
-
 import importDir from 'import-dir';
-import supertest from 'supertest-as-promised';
+import supertest from 'supertest';
 import mongoose from 'mongoose';
 import chai from 'chai';
 import app from '../../src/server';
-import {
-  connectDatabase,
-} from '../../src/server/db';
+import connectDatabase from '../../src/server/db';
 import { test } from '../../src/server/db/config';
 
 const routes = importDir('./routes');

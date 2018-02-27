@@ -1,5 +1,3 @@
-'use strict';
-
 import Koa from 'koa';
 
 import middleware from './middleware';

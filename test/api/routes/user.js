@@ -1,12 +1,8 @@
-'use strict';
-
-export default function testUser(request) {
-    describe('Users', () => {
-        it('should return true', async () => {
-            const res = await request.get('/api/user/me')
-                .expect(401);
-                
-            console.log(res, res.body);
-        });
+export default (request) => {
+  describe('Users', () => {
+    it('should fail to authenticate user', async () => {
+      await request.get('/api/user/me')
+        .expect(401);
     });
-}
+  });
+};
