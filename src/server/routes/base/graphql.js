@@ -1,5 +1,5 @@
 import { graphql } from 'graphql';
-import { renderGraphiQL } from '../../graphql/util';
+import renderGraphiQL from '../../graphql/util';
 import { schema, graphiql } from '../../graphql';
 
 function accepts(ctx, type) {

@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import 'isomorphic-fetch';
 import app from './server';
-import { connectDatabase } from './server/db';
+import connectDatabase from './server/db';
 import { development, /* test , */production } from './server/db/config';
 
 const port = process.env.PORT || 4000;
